@@ -1,7 +1,10 @@
 const express = require('express');
 const { ROUTE_CONTSTANTS } = require('./helpers/route_constants');
 const bodyParser = require('body-parser');
+const { request } = require('express');
 const app = express();
+const asyncRequest = require('async-request');
+const countryListUrl = 'https://restcountries.eu/rest/v2/all';
 
 // Body parser will intercept the requset and extract the body... 
 // Details providing during registration are parsed and extracted from request and print in the console
@@ -308,5 +311,15 @@ app.get(ROUTE_CONTSTANTS.GET_FILE,function (req,res){
 app.post(ROUTE_CONTSTANTS.POST_REGISTER,function(req,res){
     console.log(req.body); //req will parsed by body parser and print
     res.send("Successfully registered")
+})
+
+app.get(ROUTE_CONTSTANTS.GET_COUNTRIES,async function(req,res){
+  //try{
+    const response = await asyncRequest(countryListUrl);  //Make a call to external API's or asynchronous calls
+    res.json(response);
+  /*}
+  catch(ex){
+    res.json(ex);
+  } */s
 })
 app.listen(3000);
