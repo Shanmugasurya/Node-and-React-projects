@@ -10,7 +10,7 @@ export class BookComponent extends Component {
     }
 
     async componentDidMount() {
-        let book = await axios("https://fakerestapi.azurewebsites.net/swagger/ui/index#!/CoverPhotos/CoverPhotos");
+        let book = await axios("https://fakerestapi.azurewebsites.net/api/CoverPhotos");
         console.log(book);
         this.setState({bookList:book.data});
     }
