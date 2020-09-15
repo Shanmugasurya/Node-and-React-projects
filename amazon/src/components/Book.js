@@ -24,7 +24,9 @@ export class BookComponent extends Component {
     render() {
         return <div>
             <label>Select Preferred</label>
+            <div>
             {this.bindDatatoBook()}
+            </div>
         </div>
     }
 }
