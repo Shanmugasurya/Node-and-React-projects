@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 
 const TextBox = () => {
     // Below code for single text field
@@ -40,4 +40,5 @@ const TextBox = () => {
 }
 
 export default TextBox;
+
 
